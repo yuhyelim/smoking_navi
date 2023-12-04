@@ -126,3 +126,4 @@ STATIC_ROOT = [BASE_DIR / 'staticfiles']
 
 # 로그인 후 홈으로 이동하도록 하는 방법
 LOGIN_REDIRECT_URL = "/"
+

@@ -2,7 +2,7 @@
 {% block content %}
 
 <style>
-
+/* 데스크탑 */
 .container {
     margin-bottom: 10px;
 }
@@ -70,11 +70,18 @@ table {
 
 .searchbutton{
     float:right;
+    position:relative;
 }
 
-  .divpop {
-     position: absolute; z-index:999; top:50%; left:50%;
-     width:500px;     height: 50%; display:none;
+.searchbutton img{
+    position: absolute;
+    left: 215px;
+    top:9px;
+}
+
+.divpop {
+    position: absolute; z-index:999; top:50%; left:50%;
+    width:500px;     height: 50%; display:none;
     transform: translate(-50%,-50%);
     min-width: 300px;
     max-width: 100%;
@@ -82,14 +89,14 @@ table {
     border-radius: 15px;
     box-shadow: 0 2px 55px -25px rgb(0 0 0 / 100%);
   }
-  .title_area {
 
+.title_area {
       padding: 20px;
       box-sizing: border-box;
-      width:100%;}
+      width:100%;
+}
 
-  .button_area {position:absolute;bottom:0;left:10px;}
-
+.button_area {position:absolute;bottom:0;left:10px;}
 
 .title{
     border-radius: 15px 15px 0 0;
@@ -100,25 +107,25 @@ table {
     box-sizing: border-box;
     font-weight: bold;
 }
-/* 데스크탑 */
-@media screen and (max-width:1023px) {
+
 /* 타블렛 */
+@media screen and (max-width:1023px) {
    #text-ellipsis, .text-ellipsis      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:300px;}
    #td-title, .td-title      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:100px;}
    #td-date, .td-date      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:100px;}
    #td-author, .td-author      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:80px;}
+   .searchbutton img{position:absolute;left:217px;top:15px;}
 }
 
-@media screen and (max-width:767px) {
 /* 모바일 */
+@media screen and (max-width:767px) {
    #text-ellipsis, .text-ellipsis      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:150px;}
    #td-title, .td-title      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:90px;}
    #td-date, .td-date      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:50px;}
    #td-author, .td-author      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:50px;}
+   .searchbutton img{position:absolute;left:217px;top:15px;}
 }
-
 </style>
-<!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
 <body >
 <form name="notice_form">
    <div id="divpop1" class="divpop">
@@ -206,11 +213,11 @@ table {
 
         <!-- 검색 기능을 위한 검색 창과 버튼-->
         <div class="searchbutton">
-            <form action="" method="GET" class="form-inline my-2 my-lg-0" >
-                <input class="form-control mr-sm-2" style="width:220px;" name="search_key" value="{{ search_key }}" type="text" placeholder="검색어를 입력해주세요" aria-label="Search">
+            <form action="" method="GET" class="form-inline my-2 my-lg-0">
                 <button class="btn my-2 my-sm-0" type="submit">
                     <img style="width:22px;height:22px;" src="https://user-images.githubusercontent.com/73421028/133556991-e1de119a-40b5-4276-b980-9254d9ee5af3.png">
                 </button>
+                <input class="form-control mr-sm-2" style="width:220px;" name="search_key" value="{{ search_key }}" type="text" placeholder="검색어를 입력해주세요" aria-label="Search">
             </form>
         </div>
   </div>
@@ -229,15 +236,15 @@ table {
                             <strong>유형</strong>
                         </button>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_notice' %}" style="margin-left:10px;color:orange">공지</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_notice' %}" style="margin-left:10px;color:black">공지</a></li>
                             <div class="dropdown-divider"></div>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_questions' %}" style="margin-left:10px;color:limegreen">질문</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_questions' %}" style="margin-left:10px;color:black">질문</a></li>
                             <div class="dropdown-divider"></div>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_request' %}" style="margin-left:10px;color:pink">요청</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_request' %}" style="margin-left:10px;color:black">요청</a></li>
                             <div class="dropdown-divider"></div>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_report' %}" style="margin-left:10px;color:violet">제보</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_report' %}" style="margin-left:10px;color:black">제보</a></li>
                             <div class="dropdown-divider"></div>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_etc' %}" style="margin-left:10px;color:lightskyblue">기타</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_etc' %}" style="margin-left:10px;color:black">기타</a></li>
                         </ul>
                     </div>
                     </th>
@@ -257,15 +264,15 @@ table {
                 {#카테고리#}
                 <td width="50px" style="word-break:break-all;text-align:center"><div class="td-title">
                     {% if post.category.name == '공지' %}
-                        <span style="color:orange">{{post.category}}</span>
+                        <span >{{post.category}}</span>
                     {% elif post.category.name == '질문' %}
-                        <span style="color:limegreen">{{post.category}}</span>
+                        <span>{{post.category}}</span>
                     {% elif post.category.name == '요청' %}
-                        <span style="color:pink">{{post.category}}</span>
+                        <span >{{post.category}}</span>
                     {% elif post.category.name == '제보' %}
-                        <span style="color:violet">{{post.category}}</span>
+                        <span >{{post.category}}</span>
                     {% elif post.category.name == '기타' %}
-                        <span style="color:lightskyblue">{{post.category}}</span>
+                        <span >{{post.category}}</span>
                     {% endif %}
                 </div></td>
 

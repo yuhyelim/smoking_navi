@@ -71,6 +71,13 @@ table {
 
 .searchbutton{
     float:right;
+    position:relative;
+}
+
+.searchbutton img{
+    position: absolute;
+    left: 215px;
+    top:9px;
 }
 /* 데스크탑 */
 
@@ -80,6 +87,7 @@ table {
    #td-title, .td-title      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:100px;}
    #td-date, .td-date      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:100px;}
    #td-author, .td-author      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:80px;}
+   .searchbutton img{position:absolute;left:217px;top:15px;}
 }
 
 @media screen and (max-width:767px) {
@@ -88,6 +96,7 @@ table {
    #td-title, .td-title      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:90px;}
    #td-date, .td-date      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:50px;}
    #td-author, .td-author      { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;width:50px;}
+   .searchbutton img{position:absolute;left:217px;top:15px;}
 }
 
 </style>
@@ -109,11 +118,11 @@ table {
 
         <!-- 검색 기능을 위한 검색 창과 버튼-->
         <div class="searchbutton">
-            <form action="" method="GET" class="form-inline my-2 my-lg-0" >
-                <input class="form-control mr-sm-2" style="width:220px;" name="search_key" value="{{ search_key }}" type="text" placeholder="검색어를 입력해주세요" aria-label="Search">
+            <form action="" method="GET" class="form-inline my-2 my-lg-0">
                 <button class="btn my-2 my-sm-0" type="submit">
                     <img style="width:22px;height:22px;" src="https://user-images.githubusercontent.com/73421028/133556991-e1de119a-40b5-4276-b980-9254d9ee5af3.png">
                 </button>
+                <input class="form-control mr-sm-2" style="width:220px;" name="search_key" value="{{ search_key }}" type="text" placeholder="검색어를 입력해주세요" aria-label="Search">
             </form>
         </div>
     </div>
@@ -135,13 +144,13 @@ table {
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list' %}" style="margin-left:10px;color:black">전체</a></li>
                             <div class="dropdown-divider"></div>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_notice' %}" style="margin-left:10px;color:orange">공지</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_notice' %}" style="margin-left:10px;color:black">공지</a></li>
                             <div class="dropdown-divider"></div>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_questions' %}" style="margin-left:10px;color:limegreen">질문</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_questions' %}" style="margin-left:10px;color:black">질문</a></li>
                             <div class="dropdown-divider"></div>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_request' %}" style="margin-left:10px;color:pink">요청</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_request' %}" style="margin-left:10px;color:black">요청</a></li>
                             <div class="dropdown-divider"></div>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_etc' %}" style="margin-left:10px;color:lightskyblue">기타</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'post:post_list_etc' %}" style="margin-left:10px;color:black">기타</a></li>
                         </ul>
                     </div>
                     </th>
@@ -160,7 +169,7 @@ table {
                     </th>
 
             {#                카테고리#}
-                    <td width="50px" style="word-break:break-all;color:violet;text-align:center"><div class="td-title">
+                    <td width="50px" style="word-break:break-all;text-align:center"><div class="td-title">
                         {{ post.category}}
                     </div></td>
 

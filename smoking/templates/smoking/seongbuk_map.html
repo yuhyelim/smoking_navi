@@ -5,7 +5,7 @@
 
 
 <style>
-     .dropdown-menu {
+     .dropup-menu {
         max-height: 400px;
         overflow: hidden;
         overflow-y: auto;
@@ -25,16 +25,16 @@
         padding: 2%;
         background: #FDFFFF;
     }
-    .dropdown>a {
+    .dropup>a {
     background-color: lightgray;
 }
 
-.dropdown>a:hover {
+.dropup>a:hover {
     background-color: #57B59A;
 }
     #map{position:relative;overflow:hidden;}
-.dropdown, .dropdown *{margin:0;color:#000;}
-.dropdown {position:absolute;top:200px;left:28px; z-index:10;text-align:center;background-color:#FFFFFF;}
+.dropup, .dropup *{margin:0;color:#000;border-radius: 0;}
+.dropup {position:absolute;top:200px;left:28px; z-index:10;text-align:center;background-color:#FFFFFF;}
 
 .typebox {width: 144px; position:absolute; top:10px; right:10px; z-index:10; text-align:center; background-color:#fff; padding : 7px;
           border-radius:10px;}
@@ -52,7 +52,7 @@
             white-space: nowrap;
         }
 
-        .dropdown {position:absolute; top:325px;left:20px; z-index:10;text-align:center;background-color:#FFFFFF;}
+        .dropup {position:absolute; top:325px;left:20px; z-index:10;text-align:center;background-color:#FFFFFF;}
 
         .box {
         position : absolute;
@@ -73,7 +73,7 @@
 
 <div class="container" style="margin-top: 10px">
 
-   <div class = "dropdown">
+   <div class = "dropup">
         <button style="color:white;" class = "btn btn-secondary dropdown-toggle" data-toggle="dropdown">구 선택</button>
             <a class="dropdown-item" href="{% url 'smoking:gangnam_map' %}" style="height:25px;font-size:13px;">강남구</a>
                 <div class="dropdown-divider"></div> <!-- 구분선 -->

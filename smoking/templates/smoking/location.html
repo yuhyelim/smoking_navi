@@ -2,7 +2,7 @@
 {% block content %}
 
 <style>
-    .dropdown-menu {
+    .dropup-menu {
         max-height: 400px;
         overflow: hidden;
         overflow-y: auto;
@@ -22,17 +22,17 @@
         padding: 2%;
         background: #FDFFFF;
     }
-    .dropdown>a {
+    .dropup>a {
     background-color: lightgray;
 }
 
-.dropdown>a:hover {
+.dropup>a:hover {
     background-color: #57B59A;
 }
 
 #map{position:relative;overflow:hidden;}
-.dropdown, .dropdown *{margin:0;color:#000;}
-.dropdown {position:absolute;top:10px;left:10px;z-index:10;text-align:center;background-color:#fff;}
+.dropup, .dropup *{margin:0;color:#000; border-radius: 0;}
+.dropup {position:absolute;top:10px;left:10px;z-index:10;text-align:center;background-color:#fff;}
 
 .typebox {width: 144px; position:absolute; top:10px; right:10px; z-index:10; text-align:center; background-color:#fff; padding : 7px;
           border-radius:10px;}
@@ -46,7 +46,7 @@
 
 <br/>
 
-<div class = "dropdown">
+<div class = "dropup">
         <button style="color:white;" class = "btn btn-secondary dropdown-toggle" data-toggle="dropdown">구 선택</button>
             <a class="dropdown-item" href="{% url 'smoking:gangnam_map' %}" style="height:25px;font-size:13px;">강남구</a>
                 <div class="dropdown-divider"></div> <!-- 구분선 -->

@@ -2,29 +2,23 @@
 
 {% block content %}
 <style>
-/* 모바일에 적용될 스타일 */
-@media screen and (max-width: 768px) {
-    #submit-btn {
-        width:20%;
-        margin-top:1.5%;
-        float:right;
-    }
-    #textarea{
-        width:79%;
-    }
+/* 데스크탑 */
+#submit-btn { margin-top:0.6%;width:9%;float:right;}
+#textarea {width:89%;}
+
+@media screen and (max-width:1023px) {
+/* 타블렛 */
+#submit-btn {width:13%; margin-top:1.2%;float:right;}
+#textarea{ width:85%;}
 }
 
-/* 데스크탑에 적용될 스타일 */
-@media screen and (min-width: 769px) {
-    #submit-btn {
-        margin-top:0.8%;
-        width:8%;
-        float:right;
-    }
-    #textarea {
-        width:90%;
-     }
+@media screen and (max-width:767px) {
+/* 모바일 */
+#submit-btn {width:20%; margin-top:1.5%;float:right;}
+#textarea{ width:79%;}
 }
+
+
 </style>
 
 
@@ -45,16 +39,6 @@
         <div class="text">{{ post.text|linebreaksbr }}</div>
     </div>
 
-<!--    {% for comment in post.comments.all %}-->
-<!--        <div class="comment">-->
-<!--            <div class="date">{{ comment.created_at }}</div>-->
-<!--            <strong>{{ comment.author }}</strong>-->
-<!--            <p>{{ comment.comment_text|linebreaks }}</p>-->
-<!--        </div>-->
-<!--    <hr/>-->
-<!--    {% empty %}-->
-<!--        <p>아직 댓글이 없습니다.</p>-->
-<!--    {% endfor %}-->
 <br/><br/>
     <div class="container">
         <div class="card my-4">
@@ -63,7 +47,7 @@
             <form method="POST">
                 {% csrf_token %}
                 <textarea name="body" type="text" value="" id ="textarea" rows=3></textarea>
-                <button type="submit" id = "submit-btn" class="btn btn-outline-secondary" style="height:60px;">댓글<br/>등록</button>
+                <button type="submit" id = "submit-btn" class="btn btn-outline-secondary">댓글<br/>등록</button>
             </form>
         </div>
         </div>
@@ -77,11 +61,8 @@
         <p style="float:right; font-size:13px;">{{comment.date}}</p>
     <hr/>
     {% endfor %}
-
     {% csrf_token %}
     </div>
 </body>
-
-
 {% endblock %}
 
